@@ -16,4 +16,4 @@ An app to connect people looking for a furry friend with pets that need homes.
 
 ### Documentation:
 
-* [Database](https://github.com/Maivw/PawsandClaws-backend2)
+* [Database](https://pawsandclawback.herokuapp.com/)
