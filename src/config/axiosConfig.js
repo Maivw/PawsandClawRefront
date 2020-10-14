@@ -3,7 +3,7 @@ import { store } from "../index";
 import { removeToken } from "../reducers/authentication";
 
 const api = create({
-	baseURL: "https://pawsandclaws-backend2.herokuapp.com",
+	baseURL: "https://pawsandclawback.herokuapp.com/",
 	headers: {
 		Accept: "application/json",
 		"Content-Type": "application/json",
