@@ -1,0 +1,23 @@
+.color-nav {
+	background-color: blueviolet;
+}
+.login_photo {
+	object-fit: cover;
+	background-repeat: no-repeat, repeat;
+}
+.nav-item {
+	color: white;
+}
+.card-pet {
+	/* background-color: brown !important; */
+}
+
+.card-pet:hover {
+	transform: scale(1.1);
+}
+
+.slick-slide {
+	background-color: transparent;
+	/* border-top-left-radius: 10px; */
+	overflow: hidden;
+}
