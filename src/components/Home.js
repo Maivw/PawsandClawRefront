@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "./NavBar";
-import { Col, Row } from "reactstrap";
+import { Col, Row, Button } from "reactstrap";
 import { useSelector } from "react-redux";
 import PetsList from "./PetsList";
 import Carousel from "./Carousel";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export default function Home(props) {
 	const role = useSelector((state) => state.authentication.user.role);
@@ -31,6 +31,24 @@ export default function Home(props) {
 							<Carousel />
 						</Col>
 					</Row>
+
+					<div>
+						{role === "Adopter" ? (
+							<Link to="/preferredPet">
+								<Button
+									style={{
+										backgroundColor: "#b8adf3",
+										border: "1px solid white",
+										marginLeft: "15%",
+									}}
+								>
+									<span style={{ color: "#423295" }}>Find your wished Pet</span>
+								</Button>
+							</Link>
+						) : (
+							<div></div>
+						)}
+					</div>
 
 					<PetsList />
 				</div>
