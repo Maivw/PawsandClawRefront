@@ -16,5 +16,10 @@ export default function Logout(props) {
 		history.push("/login");
 	};
 
-	return <FaUserAltSlash className="ml-5" onClick={OnLogout} />;
+	return (
+		<div onClick={OnLogout}>
+			<FaUserAltSlash className="ml-5 mr-2" />
+			Logout
+		</div>
+	);
 }

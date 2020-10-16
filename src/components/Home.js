@@ -10,8 +10,6 @@ export default function Home(props) {
 	const role = useSelector((state) => state.authentication.user.role);
 	const shelterId = useSelector((state) => state.authentication.user.user.id);
 	const adopterId = useSelector((state) => state.authentication.user.user.id);
-	console.log("adopterId", adopterId);
-	console.log("shelterId", shelterId);
 
 	return (
 		<>

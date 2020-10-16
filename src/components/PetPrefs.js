@@ -59,8 +59,6 @@ export default function PetPrefs(props) {
 	const breeds = useSelector((state) => state.inforManagement.breeds);
 	const prefPet = useSelector((state) => state.inforManagement.pet);
 	const favPets = useSelector((state) => state.petManagement.favoritePets);
-	console.log("pppp", prefPet);
-	console.log("all Pets", pets);
 	const [fields, setFields] = useState({
 		breedId: "",
 		age: "",
@@ -311,7 +309,7 @@ export default function PetPrefs(props) {
 												<Card
 													style={{
 														width: "200%",
-														boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.2)",
+														boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.1)",
 														borderRadius: 10,
 													}}
 												>
@@ -323,7 +321,7 @@ export default function PetPrefs(props) {
 														alt="Card image cap"
 														style={{
 															objectFit: "cover",
-															boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.2)",
+															boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.1)",
 															borderTopLeftRadius: 10,
 															borderTopRightRadius: 10,
 														}}

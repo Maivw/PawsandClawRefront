@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Row, Col } from "reactstrap";
 import AdoptionRequestModal from "./AdoptionRequest";
 import { convertAge, convertGender, convertSize } from "./Utils";
@@ -10,10 +10,9 @@ import NavBar from "./NavBar";
 
 export default function PetDetail(props) {
 	const pet = useSelector((state) => state.petManagement.pet.pet);
-	console.log("get@@@@", pet);
 	const id = props.match.params.id;
-	console.log("checkkkk2", id);
 	const [opened, setOpened] = useState(false);
+	const role = useSelector((state) => state.authentication.user.role);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -34,9 +33,9 @@ export default function PetDetail(props) {
 			<div
 				className="container mt-5"
 				style={{
-					border: "1px solid #6c757d",
 					borderRadius: 10,
-					boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.5)",
+					width: "70%",
+					height: "50%",
 				}}
 			>
 				<Row className="px-4 py-4 ml=4">
@@ -49,11 +48,11 @@ export default function PetDetail(props) {
 										className="petImage"
 										src={pet.photo}
 										style={{
-											height: 600,
-											width: 500,
+											height: 500,
+											width: 400,
 											objectFit: "cover",
 											borderRadius: 10,
-											boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.5)",
+											boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.2)",
 										}}
 									/>
 								</Col>
@@ -64,9 +63,9 @@ export default function PetDetail(props) {
 									xs="12"
 									style={{ color: "#1b0c69", lineHeight: 2 }}
 								>
-									<h1 className="mt-4 mb-5"> {pet.petName}</h1>
+									<h1 className="mt-4 mb-2"> {pet.petName}</h1>
 									<hr />
-									<div style={{ withd: "auto", height: 450 }} className="mt-5">
+									<div style={{ withd: "auto", height: 400 }} className="mt-2">
 										<div>
 											Age:
 											<span style={{ color: "#575656", marginLeft: 5 }}>
@@ -130,17 +129,21 @@ export default function PetDetail(props) {
 											</Link>
 										</Col>
 										<Col>
-											<Button
-												style={{
-													backgroundColor: "#b8adf3",
-													border: "1px solid white",
-												}}
-												onClick={opendReqModal}
-											>
-												<span style={{ color: "#423295" }}>
-													Send a message to Shelter
-												</span>
-											</Button>
+											{role === "Shelter" ? (
+												<div></div>
+											) : (
+												<Button
+													style={{
+														backgroundColor: "#b8adf3",
+														border: "1px solid white",
+													}}
+													onClick={opendReqModal}
+												>
+													<span style={{ color: "#423295" }}>
+														Send a message to Shelter
+													</span>
+												</Button>
+											)}
 										</Col>
 									</Row>
 								</Col>

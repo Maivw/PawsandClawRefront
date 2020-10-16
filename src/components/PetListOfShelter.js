@@ -53,7 +53,7 @@ export default function PetsListOfShelter(props) {
 												<CardImg
 													top
 													width="100%"
-													height="400px"
+													height="300px"
 													src={pet.photo}
 													alt="Card image cap"
 													style={{

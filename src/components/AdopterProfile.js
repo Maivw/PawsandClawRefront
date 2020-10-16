@@ -9,7 +9,6 @@ export default function AdopterProfile(props) {
 	const { id } = useParams();
 
 	const adopter = useSelector((state) => state.authentication.userProfile);
-	console.log("nguoinuoi", adopter);
 	const requests = useSelector((state) => state.inforManagement.requests);
 
 	const dispatch = useDispatch();

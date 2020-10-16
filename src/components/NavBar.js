@@ -35,13 +35,17 @@ export default function NavBar(props) {
 					<Collapse isOpen={!collapsed} navbar>
 						<Nav navbar>
 							<NavItem>
-								<Link to={`/shelters/${shelterId}`} className="nav-item">
-									<FaUserCheck className="ml-5" />
+								<Link
+									to={`/shelters/${shelterId}`}
+									className="nav-item"
+									style={{ color: "white", textDecoration: "none" }}
+								>
+									<FaUserCheck className="ml-5 mr-2" /> Profile
 								</Link>
 							</NavItem>
 							<NavItem>
 								<Link to={`/pets/shelters/${shelterId}`} className="nav-item">
-									<FaDog className="ml-5" />
+									<FaDog className="ml-5 mr-2" /> My Pets
 								</Link>
 							</NavItem>
 							<NavItem className="nav-item">
@@ -61,18 +65,28 @@ export default function NavBar(props) {
 					<Collapse isOpen={!collapsed} navbar>
 						<Nav navbar>
 							<NavItem>
-								<Link to={`/adopters/${adopterId}`} className="nav-item">
-									<FaUserCheck className="ml-5" />
+								<Link
+									to={`/adopters/${adopterId}`}
+									className="nav-item"
+									style={{ color: "white", textDecoration: "none" }}
+								>
+									<FaUserCheck className="ml-5 mr-2" /> Profile
 								</Link>
 							</NavItem>
 							<NavItem className="nav-item">
-								<Link to="/lovepets" style={{ color: "white" }}>
-									<FaHeart className="ml-5" />
+								<Link
+									to="/lovepets"
+									style={{ color: "white", textDecoration: "none" }}
+								>
+									<FaHeart className="ml-5 mr-2" /> Wish list
 								</Link>
 							</NavItem>
 							<NavItem className="nav-item">
-								<Link to="/petslist" style={{ color: "white" }}>
-									<MdPets className="ml-5" />
+								<Link
+									to="/petslist"
+									style={{ color: "white", textDecoration: "none" }}
+								>
+									<MdPets className="ml-5 mr-2" /> Pet list
 								</Link>
 							</NavItem>
 							<NavItem className="nav-item">

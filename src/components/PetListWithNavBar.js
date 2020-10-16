@@ -49,7 +49,7 @@ export default function PetListWithNavBar(props) {
 											<Card
 												style={{
 													borderRadius: 10,
-													boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.2)",
+													boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.1)",
 												}}
 												className="card-pet"
 											>
@@ -63,7 +63,7 @@ export default function PetListWithNavBar(props) {
 														objectFit: "cover",
 														borderTopLeftRadius: 10,
 														borderTopRightRadius: 10,
-														boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.2)",
+														boxShadow: "2px 4px 8px 2px rgba(0, 0, 0, 0.1)",
 													}}
 												/>
 												<CardBody>

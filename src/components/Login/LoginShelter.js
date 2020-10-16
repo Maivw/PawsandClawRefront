@@ -70,7 +70,6 @@ export default function LoginShelter(props) {
 				<Row>
 					<Button
 						onClick={onSubmitLoginFormShelter}
-						shadow
 						block
 						style={{
 							backgroundColor: "#b8adf3",
