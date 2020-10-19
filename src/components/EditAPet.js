@@ -14,7 +14,7 @@ import {
 	Button,
 } from "reactstrap";
 import { FaArrowCircleLeft } from "react-icons/fa";
-import { shelterEditAPet } from "../reducers/petManagement";
+import { shelterEditAPet, displayAPet } from "../reducers/petManagement";
 import { showBreeds } from "../reducers/inforManagement";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -40,6 +40,7 @@ export default function EditAPet(props) {
 	const breeds = useSelector((state) => state.inforManagement.breeds);
 	const [fields, setFields] = useState(defaultState);
 	useEffect(() => {
+		dispatch(displayAPet(id));
 		dispatch(showBreeds());
 	}, []);
 
