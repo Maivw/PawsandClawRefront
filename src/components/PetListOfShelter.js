@@ -13,6 +13,7 @@ import {
 	Col,
 } from "reactstrap";
 import DeleteConfirmModal from "./DeleteConfirmModal";
+import EditAPetModal from "./EditAPet";
 import { displayAllPetsShelter, deleteAPet } from "../reducers/petManagement";
 import Navbar from "./NavBar";
 export default function PetsListOfShelter(props) {
@@ -20,18 +21,18 @@ export default function PetsListOfShelter(props) {
 	const [pup, setPup] = useState({ pet: {} });
 	const { id } = useParams();
 	const [modal, setModal] = useState(false);
-
 	const toggle = () => setModal(!modal);
+	const [modalEdit, setModalEdit] = useState(false);
+	const toggleEdit = () => setModalEdit(!modalEdit);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(displayAllPetsShelter({ id }));
 	}, []);
-	// const onDelete = (pet) => () => {
-	// 	console.log("PET", pet);
-	// 	dispatch(deleteAPet(pet));
-	// 	setModal(!modal);
-	// };
+	const openEditModal = (pet) => () => {
+		setModalEdit(!modalEdit);
+		setPup((prev) => ({ ...prev, pet: pet }));
+	};
 
 	const openModal = (pet) => () => {
 		setModal(!modal);
@@ -52,6 +53,11 @@ export default function PetsListOfShelter(props) {
 												pet={pup.pet}
 												toggle={toggle}
 												isOpen={modal}
+											/>
+											<EditAPetModal
+												pet={pup.pet}
+												toggle={toggleEdit}
+												isOpen={modalEdit}
 											/>
 											<Col
 												xl="3"
@@ -85,16 +91,16 @@ export default function PetsListOfShelter(props) {
 														<CardSubtitle>Age: {pet.age}</CardSubtitle>
 														<CardText>Breed: {pet.Breed.breedName}</CardText>
 														<div className="d-flex justify-content-sm-between">
-															<Link to={`/pets/edit/${pet.id}`}>
-																<Button
-																	style={{
-																		backgroundColor: "#b8adf3",
-																		border: "1px solid white",
-																	}}
-																>
-																	<span style={{ color: "#423295" }}>Edit</span>
-																</Button>
-															</Link>
+															<Button
+																style={{
+																	backgroundColor: "#b8adf3",
+																	border: "1px solid white",
+																}}
+																onClick={openEditModal(pet)}
+															>
+																<span style={{ color: "#423295" }}>Edit</span>
+															</Button>
+
 															<Button
 																style={{
 																	backgroundColor: "#b8adf3",
