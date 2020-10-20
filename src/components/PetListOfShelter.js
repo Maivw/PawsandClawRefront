@@ -34,7 +34,6 @@ export default function PetsListOfShelter(props) {
 	// };
 
 	const openModal = (pet) => () => {
-		console.log("PPPP", pet);
 		setModal(!modal);
 		setPup((prev) => ({ ...prev, pet: pet }));
 	};
@@ -101,7 +100,6 @@ export default function PetsListOfShelter(props) {
 																	backgroundColor: "#b8adf3",
 																	border: "1px solid white",
 																}}
-																//onClick={onDelete(pet)}
 																onClick={openModal(pet)}
 															>
 																<span style={{ color: "#423295" }}>Remove</span>

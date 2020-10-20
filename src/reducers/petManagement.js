@@ -28,6 +28,7 @@ export const displayAPet = (params) => async (dispatch) => {
 	const result = await axios.get(`/pets/${params.id}`, { ...params });
 
 	dispatch(getAPet(result.data));
+	// dispatch(getAPet(result.data.pet));
 };
 
 export const displayAllPetsShelter = (params) => async (dispatch) => {
