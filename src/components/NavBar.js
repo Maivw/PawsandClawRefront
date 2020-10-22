@@ -44,7 +44,11 @@ export default function NavBar(props) {
 								</Link>
 							</NavItem>
 							<NavItem>
-								<Link to={`/pets/shelters/${shelterId}`} className="nav-item">
+								<Link
+									to={`/pets/shelters/${shelterId}`}
+									className="nav-item"
+									style={{ color: "white", textDecoration: "none" }}
+								>
 									<FaDog className="ml-5 mr-2" /> My Pets
 								</Link>
 							</NavItem>

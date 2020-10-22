@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	Col,
+	Row,
 	Form,
 	FormGroup,
 	Input,
@@ -72,14 +73,16 @@ export default function EditAPet(props) {
 				style={{
 					backgroundColor: "#b8adf3",
 					border: "1px solid white",
+					color: "blueviolet",
+					fontSize: "1.75rem",
 				}}
 			>
-				Edit Your Pet
+				EDIT YOUR PET
 			</ModalHeader>
 
 			<div className="container mt-5">
 				<ToastContainer />
-				<Col xs="12" md="9" className="px-4">
+				<Col xs="12" md="12" xl="12" className="px-4">
 					<Form
 						action=""
 						method="post"
@@ -308,18 +311,31 @@ export default function EditAPet(props) {
 					</Form>
 
 					<ModalFooter>
-						<Button
-							style={{
-								backgroundColor: "#b8adf3",
-								border: "1px solid white",
-							}}
-							onClick={onSend}
-						>
-							<span style={{ color: "#423295" }}>Edit</span>
-						</Button>
-						<Button color="secondary" onClick={toggle}>
-							Cancel
-						</Button>
+						<Row>
+							<Col md="8" lg="8" xl="8" xs="8" sm="8"></Col>
+							<Col
+								className="d-flex justify-content-around"
+								md="4"
+								lg="4"
+								xl="4"
+								xs="6"
+								sm="6"
+							>
+								<Button
+									style={{
+										backgroundColor: "#b8adf3",
+										border: "1px solid white",
+										marginRight: 20,
+									}}
+									onClick={onSend}
+								>
+									<span style={{ color: "#423295" }}>Edit</span>
+								</Button>
+								<Button color="secondary" onClick={toggle}>
+									Cancel
+								</Button>
+							</Col>
+						</Row>
 					</ModalFooter>
 				</Col>
 			</div>

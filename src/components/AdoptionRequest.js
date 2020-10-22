@@ -12,6 +12,8 @@ import {
 
 export default function AdoptionRequestModal(props) {
 	const { isOpen, pet } = props;
+	const currentPet = props.pet;
+	console.log("Pr", currentPet);
 
 	const dispatch = useDispatch();
 
@@ -25,8 +27,8 @@ export default function AdoptionRequestModal(props) {
 		e.preventDefault();
 
 		const data = {
-			petId: pet.pet.id,
-			shelterId: pet.pet.shelterId,
+			petId: currentPet.id,
+			shelterId: currentPet.shelterId,
 			message: message,
 			isAccepted: true,
 		};
@@ -39,7 +41,7 @@ export default function AdoptionRequestModal(props) {
 	};
 	return (
 		<div>
-			<Modal isOpen={isOpen} toggle={toggleModal}>
+			<Modal isOpen={isOpen} toggle={toggleModal} pet={currentPet}>
 				<ModalHeader toggle={toggleModal} style={{ color: "#1b0c69" }}>
 					Messge
 				</ModalHeader>

@@ -8,7 +8,6 @@ import {
 	CardBody,
 	CardHeader,
 	Table,
-	Button,
 	CardText,
 	CardTitle,
 	CardSubtitle,
@@ -51,6 +50,7 @@ export default function ShelterProfile(props) {
 	const shelterId = useSelector((state) => state.authentication.user.user.id);
 	const requests = useSelector((state) => state.inforManagement.requests);
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		const data = {};
 		dispatch(displayAllReqs(data, id));
@@ -72,6 +72,7 @@ export default function ShelterProfile(props) {
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
 	};
+
 	return (
 		<div>
 			<Navbar shelterId={shelterId} />
@@ -152,18 +153,6 @@ export default function ShelterProfile(props) {
 														<CardTitle>Name: {pet.petName}</CardTitle>
 														<CardSubtitle>Age: {pet.age}</CardSubtitle>
 														<CardText>Breed: {pet.Breed.breedName}</CardText>
-														<div className="d-flex justify-content-sm-between">
-															<Link to={`/pets/edit/${pet.id}`}>
-																<Button
-																	style={{
-																		backgroundColor: "#b8adf3",
-																		border: "1px solid white",
-																	}}
-																>
-																	<span style={{ color: "#423295" }}>Edit</span>
-																</Button>
-															</Link>
-														</div>
 													</CardBody>
 												</Card>
 											</Col>
@@ -179,12 +168,16 @@ export default function ShelterProfile(props) {
 				>
 					<strong>Your Request:</strong>
 					<strong style={{ textDecoration: "none" }}>
-						<Link to={`/pets/edit/shelters/${id}`}>
+						<Link
+							to={`/pets/shelters/${shelterId}`}
+							className="nav-item"
+							style={{ color: "white", textDecoration: "none" }}
+						>
 							<span style={{ color: "#423295" }}>List Pets</span>
 						</Link>
 					</strong>
-					<strong style={{ textDecoration: "none" }}>
-						<Link to={`/pets/new`}>
+					<strong>
+						<Link to={`/pets/new`} style={{ textDecoration: "none" }}>
 							<span style={{ color: "#423295" }}>Creat a pet</span>
 						</Link>
 					</strong>

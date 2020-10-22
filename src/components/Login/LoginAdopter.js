@@ -68,7 +68,7 @@ export default function LoginAdopter(props) {
 				<Row>
 					<Button
 						onClick={onSubmitLoginFormAdopter}
-						shadow
+						shadow="true"
 						block
 						style={{
 							backgroundColor: "#b8adf3",

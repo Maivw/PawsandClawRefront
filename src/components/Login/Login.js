@@ -76,7 +76,10 @@ export default function Login() {
 																</Col>
 															</Row>
 														</TabPane>
-														<Link to="/signup">
+														<Link
+															to="/signup"
+															style={{ textDecoration: "none" }}
+														>
 															<p
 																style={{
 																	marginTop: "20%",

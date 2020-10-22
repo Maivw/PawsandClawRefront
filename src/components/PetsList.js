@@ -17,7 +17,6 @@ import { displayAllPets, favoriteAPet } from "../reducers/petManagement";
 
 export default function PetsList(props) {
 	const pets = useSelector((state) => state.petManagement.pets);
-	console.log("ALl PETs", pets);
 	const favPets = useSelector((state) => state.petManagement.favoritePets);
 	const dispatch = useDispatch();
 	useEffect(() => {
