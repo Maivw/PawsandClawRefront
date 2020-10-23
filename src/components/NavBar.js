@@ -16,9 +16,10 @@ import { Link } from "react-router-dom";
 
 export default function NavBar(props) {
 	const { shelterId, adopterId } = props;
+	const id = useSelector((state) => state.authentication.user.user.id);
 	const role = useSelector((state) => state.authentication.user.role);
-
 	const [collapsed, setCollapsed] = useState(true);
+	console.log("ID", id);
 
 	const toggleNavbar = () => setCollapsed(!collapsed);
 
@@ -43,9 +44,28 @@ export default function NavBar(props) {
 									<FaUserCheck className="ml-5 mr-2" /> Profile
 								</Link>
 							</NavItem>
+							{/* <NavItem>
+								{id ? (
+									<Link
+										to={`/pets/shelters/${id}`}
+										className="nav-item"
+										style={{ color: "white", textDecoration: "none" }}
+									>
+										<FaDog className="ml-5 mr-2" /> My Pets
+									</Link>
+								) : (
+									<Link
+										to={`/pets/shelters/${shelterId}`}
+										className="nav-item"
+										style={{ color: "white", textDecoration: "none" }}
+									>
+										<FaDog className="ml-5 mr-2" /> My Pets
+									</Link>
+								)}
+							</NavItem> */}
 							<NavItem>
 								<Link
-									to={`/pets/shelters/${shelterId}`}
+									to={`/pets/shelters/${id}`}
 									className="nav-item"
 									style={{ color: "white", textDecoration: "none" }}
 								>

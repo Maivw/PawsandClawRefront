@@ -14,6 +14,8 @@ export default function PetDetail(props) {
 	const [opened, setOpened] = useState(false);
 	const role = useSelector((state) => state.authentication.user.role);
 	const shelterId = useSelector((state) => state.authentication.user.id);
+	const shelId = useSelector((state) => state.authentication.user.user.id);
+	console.log("ShelId", shelId);
 
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -121,20 +123,37 @@ export default function PetDetail(props) {
 									<Row className="mt-5">
 										<Col>
 											{role === "Shelter" ? (
-												<Link
-													to={`/pets/shelters/${shelterId}`}
-													className="nav-item"
-													style={{ color: "white", textDecoration: "none" }}
-												>
-													<Button
-														style={{
-															backgroundColor: "#b8adf3",
-															border: "1px solid white",
-														}}
+												(
+													<Link
+														to={`/pets/shelters/${shelId}`}
+														className="nav-item"
+														style={{ color: "white", textDecoration: "none" }}
 													>
-														My Pets
-													</Button>
-												</Link>
+														<Button
+															style={{
+																backgroundColor: "#b8adf3",
+																border: "1px solid white",
+															}}
+														>
+															My Pets
+														</Button>
+													</Link>
+												) || (
+													<Link
+														to={`/pets/shelters/${shelterId}`}
+														className="nav-item"
+														style={{ color: "white", textDecoration: "none" }}
+													>
+														<Button
+															style={{
+																backgroundColor: "#b8adf3",
+																border: "1px solid white",
+															}}
+														>
+															My Pets
+														</Button>
+													</Link>
+												)
 											) : (
 												<Link to="/">
 													<FaArrowCircleLeft

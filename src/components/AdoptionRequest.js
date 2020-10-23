@@ -13,7 +13,6 @@ import {
 export default function AdoptionRequestModal(props) {
 	const { isOpen, pet } = props;
 	const currentPet = props.pet;
-	console.log("Pr", currentPet);
 
 	const dispatch = useDispatch();
 
