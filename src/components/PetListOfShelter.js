@@ -143,24 +143,21 @@ export default function PetsListOfShelter(props) {
 																				</span>
 																			</Button>
 																		) : (
-																			<div></div>
+																			<Button
+																				style={{
+																					backgroundColor: "#b8adf3",
+																					border: "1px solid white",
+																					fontSize: "0.8rem",
+																				}}
+																				onClick={openModal(pet)}
+																			>
+																				<span style={{ color: "#423295" }}>
+																					Remove
+																				</span>
+																			</Button>
 																		)
 																	)}
 															</div>
-															{!adoptedList && (
-																<Button
-																	style={{
-																		backgroundColor: "#b8adf3",
-																		border: "1px solid white",
-																		fontSize: "0.8rem",
-																	}}
-																	onClick={openModal(pet)}
-																>
-																	<span style={{ color: "#423295" }}>
-																		Remove
-																	</span>
-																</Button>
-															)}
 														</div>
 													</CardBody>
 												</Card>
