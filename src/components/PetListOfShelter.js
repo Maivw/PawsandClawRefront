@@ -12,12 +12,15 @@ import {
 	Row,
 	Col,
 } from "reactstrap";
+import { FaBan } from "react-icons/fa";
 import DeleteConfirmModal from "./DeleteConfirmModal";
 import EditAPetModal from "./EditAPet";
 import { displayAllPetsShelter, deleteAPet } from "../reducers/petManagement";
 import Navbar from "./NavBar";
 export default function PetsListOfShelter(props) {
 	const pets = useSelector((state) => state.petManagement.shelterPets);
+	const adoptedList = useSelector((state) => state.inforManagement.requests);
+	console.log("AD", adoptedList);
 	const [pup, setPup] = useState({ pet: {} });
 	const { id } = useParams();
 	const [modal, setModal] = useState(false);
@@ -95,21 +98,66 @@ export default function PetsListOfShelter(props) {
 																style={{
 																	backgroundColor: "#b8adf3",
 																	border: "1px solid white",
+																	fontSize: "0.8rem",
 																}}
 																onClick={openEditModal(pet)}
 															>
 																<span style={{ color: "#423295" }}>Edit</span>
 															</Button>
+															<Link to={`/pets/${pet.id}`}>
+																<Button
+																	style={{
+																		backgroundColor: "#b8adf3",
+																		border: "1px solid white",
+																		fontSize: "0.8rem",
+																	}}
+																>
+																	<span style={{ color: "#423295" }}>
+																		Detail
+																	</span>
+																</Button>
+															</Link>
 
-															<Button
-																style={{
-																	backgroundColor: "#b8adf3",
-																	border: "1px solid white",
-																}}
-																onClick={openModal(pet)}
-															>
-																<span style={{ color: "#423295" }}>Remove</span>
-															</Button>
+															<div>
+																{adoptedList &&
+																	adoptedList.map((p, index) =>
+																		pet.id === p.petId ? (
+																			<Button
+																				style={{
+																					backgroundColor: "light grey",
+																					border: "1px solid white",
+																					fontSize: "0.8rem",
+																				}}
+																				disabled
+																			>
+																				<span
+																					style={{
+																						color: "#423295",
+																						fontSize: "0.8rem",
+																					}}
+																				>
+																					Remove{" "}
+																					<FaBan
+																						style={{ fontSize: "0.8rem" }}
+																					/>
+																				</span>
+																			</Button>
+																		) : (
+																			<Button
+																				style={{
+																					backgroundColor: "#b8adf3",
+																					border: "1px solid white",
+																					fontSize: "0.8rem",
+																				}}
+																				onClick={openModal(pet)}
+																			>
+																				<span style={{ color: "#423295" }}>
+																					Remove
+																				</span>
+																			</Button>
+																		)
+																	)}
+															</div>
 														</div>
 													</CardBody>
 												</Card>
